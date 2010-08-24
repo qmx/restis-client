@@ -1,6 +1,14 @@
 require "spec_helper"
 
 describe Restis::Client do
+
+	context "on setup" do
+		it "should pass connection parameters to redis" do
+			args = {:host => "1.1.1.1"}
+			Redis.stub!(:new).with(args)
+			Restis::Client.new(args)
+		end
+	end
 	context "when publishing" do
 		it "should keep published items on backlog" do
 			redis = Redis.new

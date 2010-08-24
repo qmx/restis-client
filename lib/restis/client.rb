@@ -1,8 +1,8 @@
 module Restis
 	class Client
 		attr_accessor :redis
-		def initialize
-			@redis = Redis.new(:timeout => 0)
+		def initialize(args = {})
+			@redis = Redis.new(args)
 		end
 
 		def publish(channel, message)
