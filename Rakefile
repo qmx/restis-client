@@ -11,7 +11,7 @@ begin
       gemspec.add_dependency(dep)
     end
   end
-	Jeweler::GemcutterTasks.new
+  Jeweler::GemcutterTasks.new
 rescue LoadError
   puts "Jeweler not available. Install it with: gem install jeweler"
 end

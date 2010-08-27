@@ -1,5 +1,4 @@
 source :rubygems
-
 gem "SystemTimer"
 gem "redis"
 group :test do
