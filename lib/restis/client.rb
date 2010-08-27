@@ -1,3 +1,4 @@
+require 'redis'
 module Restis
 	class Client
 		attr_accessor :redis
