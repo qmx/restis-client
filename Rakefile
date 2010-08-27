@@ -7,6 +7,9 @@ begin
     gemspec.email = "douglas@theros.info"
     gemspec.homepage = "http://github.com/qmx/restis-client"
     gemspec.authors = ["Douglas Campos", "Gustavo Santana"]
+    ["redis"].each do |dep|
+      gemspec.add_dependency(dep)
+    end
   end
 	Jeweler::GemcutterTasks.new
 rescue LoadError
