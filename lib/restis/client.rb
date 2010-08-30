@@ -3,7 +3,8 @@ module Restis
 	class Client
 		attr_accessor :redis
 		def initialize(args = {})
-			@redis = Redis.new(args)
+			@args = args
+			@redis = Redis.new(@args)
 		end
 
 		def publish(channel, message)
@@ -27,7 +28,7 @@ module Restis
 			redis.subscribe(channel) do |on|
 				on.message do |channel, msg|
 					block.call(redis, channel, msg)
-					Redis.new.incr(key)
+					Redis.new(@args).incr(key)
 				end
 			end
 		end
