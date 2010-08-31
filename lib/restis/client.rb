@@ -24,11 +24,11 @@ module Restis
 				end
 				@redis.set(key, queue_size)
 			end
-			redis = Redis.new(:timeout => 0)
+			redis = Redis.new(@args.merge(:timeout => 0))
 			redis.subscribe(channel) do |on|
 				on.message do |channel, msg|
 					block.call(redis, channel, msg)
-					Redis.new(@args).incr(key)
+					@redis.incr(key)
 				end
 			end
 		end
